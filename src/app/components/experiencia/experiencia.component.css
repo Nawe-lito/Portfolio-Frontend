@@ -1,0 +1,19 @@
+.timeline {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.linea {
+    position: absolute;
+    top: 27px;
+    width: 4px;
+    height: 95%;
+}
+
+.flechita {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}   
