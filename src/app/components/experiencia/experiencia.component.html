@@ -13,7 +13,7 @@
       <div class="content-area ms-3 my-3 pb-4" *ngFor="let Experiencia of expe">
         <div class="date lead fst-italic text-primary">2015 - actualidad</div>
         <h4 class="p-0 m-0 fw-bold">{{Experiencia.nombreE}}
-          <button class="btn btn-outline-info ms-3 px-1 py-0" routerLink="/editexp/{{Experiencia.id}}" *ngIf="isLogged">
+          <button class="btn btn-outline-info ms-3 px-1 py-0" routerLink="/editexp/{{Experiencia.id}}" *ngIf="isLogged" >
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
           <button class="btn btn-outline-danger ms-3 px-1 py-0" (click)="delete(Experiencia.id)" *ngIf="isLogged">

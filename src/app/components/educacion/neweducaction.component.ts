@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Educacion } from 'src/app/model/educacion';
+import { EducacionService } from 'src/app/service/educacion.service';
+
+@Component({
+  selector: 'app-neweducaction',
+  templateUrl: './neweducaction.component.html',
+  styleUrls: ['./neweducaction.component.css']
+})
+export class NeweducactionComponent implements OnInit {
+  nombreE: string;
+  descripcionE: string;
+
+  constructor(private educacionS:EducacionService, private router: Router) {  }
+
+  ngOnInit(): void {
+    
+  }
+
+  onCreate(): void {
+    const educacion = new Educacion(this.nombreE, this.descripcionE);
+    this.educacionS.save(educacion).subscribe(
+      data =>{
+        alert("Educacion agregada correctamente");
+        this.router.navigate(['']);
+      }, erro => {
+        alert("No se pudo agregar correctamente");
+        this.router.navigate(['']);
+      }
+    )
+  }
+
+}
