@@ -1,1 +1,4 @@
-<a href="/login" class="text-decoration-none"><button class="btn btn-outline-primary mx-5" type="submit">Ingreso</button></a>
+<a href="/login" class="text-decoration-none">
+    <button type="button" class="btn btn-outline-primary mx-5" (click)="login()" *ngIf="!isLogged">Ingreso</button>
+    <button type="button" class="btn btn-outline-primary mx-5" (click)="onLogOut()" *ngIf="isLogged">Salir</button>
+</a>

@@ -15,7 +15,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { BotonloginComponent } from './components/botonlogin/botonlogin.component'
+import { BotonloginComponent } from './components/botonlogin/botonlogin.component';
+import { FormsModule } from '@angular/forms'
+import { interceptorProvider } from './service/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,15 @@ import { BotonloginComponent } from './components/botonlogin/botonlogin.componen
     FooterComponent,
     LoginComponent,
     InicioComponent,
-    BotonloginComponent
+    BotonloginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
