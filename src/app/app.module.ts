@@ -18,6 +18,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { BotonloginComponent } from './components/botonlogin/botonlogin.component';
 import { FormsModule } from '@angular/forms'
 import { interceptorProvider } from './service/interceptor-service';
+import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
+import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { interceptorProvider } from './service/interceptor-service';
     LoginComponent,
     InicioComponent,
     BotonloginComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent,
   ],
   imports: [
     BrowserModule,
