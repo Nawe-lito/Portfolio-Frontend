@@ -22,6 +22,7 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NeweducactionComponent } from './components/educacion/neweducaction.component';
 import { EditEducationComponent } from './components/educacion/edit-education.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,20 @@ import { EditEducationComponent } from './components/educacion/edit-education.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgCircleProgressModule.forRoot({
+      "outerStrokeColor": "#0d6efd",
+      "outerStrokeWidth": 20,
+      "innerStrokeColor": "#6c757d",
+      "innerStrokeWidth": 20,
+      "showSubtitle": false,
+      "showUnits": false,
+      "showBackground": false,
+      "titleColor": "#f8f9fa",
+      "titleFontSize": "28",
+      "radius": 90,
+      "space": -20,
+    })
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
