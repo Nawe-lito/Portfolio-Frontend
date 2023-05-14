@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
-import { ImageService } from 'src/app/service/image.service';
+import { ImageeducacionService } from 'src/app/service/imageeducacion.service';
 
 @Component({
   selector: 'app-edit-education',
@@ -15,25 +15,28 @@ export class EditEducationComponent implements OnInit {
   constructor (private educacionS:EducacionService, 
     private activatedRouter: ActivatedRoute, 
     private router: Router,
-    public imageService: ImageService){
+    public imageeducacionService: ImageeducacionService){
       
     }
-
-  ngOnInit(): void {
-     const id = this.activatedRouter.snapshot.params['id'];
-     this.educacionS.detail(id).subscribe(
-      data =>{
-        this.educacion = data
-      }, err => {
-        alert("Error al modificar");
-        this.router.navigate(['']);
-      }
-     )
-  }
+    
+    ngOnInit(): void {
+      const id = this.activatedRouter.snapshot.params['id'];
+      this.educacionS.detail(id)
+      .subscribe(
+        {
+          next: data =>{
+            this.educacion = data;
+        }, 
+        error: err => {
+          alert("Error al modificar experiencia");
+          this.router.navigate(['']);
+        }
+        }
+      )
+    }
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.educacion.imgE = this.imageService.url;
     this.educacionS.update(id, this.educacion).subscribe(
       data => {
         this.router.navigate(['']);
@@ -44,9 +47,9 @@ export class EditEducationComponent implements OnInit {
     )
   }
 
-  uploadImage($event:any) {
-    const id = this.activatedRouter.snapshot.params['id'];
-    const name = "educacion_" + id;
-    this.imageService.uploadImage($event, name);
-  }
+  // uploadImageE($event:any) {
+  //   const id = this.activatedRouter.snapshot.params['id'];
+  //   const name = "educacion_" + id;
+  //   this.imageeducacionService.uploadImageE($event, name);
+  // }
 }

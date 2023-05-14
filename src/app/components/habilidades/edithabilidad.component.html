@@ -1,0 +1,19 @@
+<div class="container-fluid min-vh-100 bg-dark text-light p-5" *ngIf="habilidades">
+    <div class="container bg-dark text-white">
+        <div class="row">
+            <div>
+                <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="text-end">
+                    <div class="form-group py-2 text-center">
+                        <label for="nombreE">Habilidad</label>
+                        <input type="text" class="form-control" id="nombreHab" name="nombreHab" [(ngModel)]="habilidades.nombreHab" required>
+                    </div>
+                    <div class="form-group py-2 text-center">
+                        <label for="porcentajeSkill">Porcentaje de la habilidad</label>
+                        <input type="number" class="form-control" id="porcentajeSkill" name="porcentajeSkill" [(ngModel)]="habilidades.porcentajeSkill" required>
+                    </div>
+                    <button class="btn btn-outline-primary">Editar habilidad</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div> 

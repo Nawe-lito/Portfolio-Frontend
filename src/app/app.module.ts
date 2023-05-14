@@ -27,6 +27,8 @@ import { EditpersonaComponent } from './components/sobremi/editpersona.component
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NewHabilidadComponent } from './components/habilidades/new-habilidad.component';
+import { EdithabilidadComponent } from './components/habilidades/edithabilidad.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NeweducactionComponent,
     EditEducationComponent,
     EditpersonaComponent,
+    NewHabilidadComponent,
+    EdithabilidadComponent,
   ],
   imports: [
     BrowserModule,

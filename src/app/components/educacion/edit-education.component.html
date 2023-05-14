@@ -12,8 +12,12 @@
                         <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="educacion.descripcionE" required>
                     </div>
                     <div class="form-group py-2 text-center">
+                        <label for="tiempoE">Tiempo cursado</label>
+                        <input type="text" class="form-control" id="tiempoE" name="tiempoE" [(ngModel)]="educacion.tiempoE" required>
+                    </div>
+                    <div class="form-group py-2 text-center">
                         <label for="imgE">Imagen de institución</label>
-                        <input type="file" class="form-control" id="imgE" name="imgE" [(ngModel)]="educacion.imgE" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
+                        <input type="text" class="form-control" id="imgE" name="imgE" [(ngModel)]="educacion.imgE" required>
                     </div>
                     <button class="btn btn-outline-primary">Editar educacion</button>
                 </form>

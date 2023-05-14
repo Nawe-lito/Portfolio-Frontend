@@ -1,4 +1,4 @@
-<section class="container-fluid min-vh-100 bg-dark text-light p-3" id="experiencia">
+<section class="bg-dark text-light p-3" id="experiencia">
   <h2 class="fs-1 text-center m-5 mb-1 fw-bold">Experiencia</h2>
   <div class="container-fluid text-center">
     <button type="button" class="btn btn-outline-info" routerLink="/nuevaexp" *ngIf="isLogged">Agregar Experiencia</button>
@@ -11,8 +11,8 @@
 
     <div class="col-7 col-md-5 col-lg-6">
       <div class="content-area ms-3 my-3 pb-4" *ngFor="let Experiencia of expe">
-        <div class="date lead fst-italic text-primary">2015 - actualidad</div>
-        <h4 class="p-0 m-0 fw-bold">{{Experiencia.nombreE}}
+        <div class="date lead fst-italic text-primary">{{Experiencia.tiempoExp}}</div>
+        <h4 class="p-0 m-0 fw-bold">{{Experiencia.nombreExp}}
           <button class="btn btn-outline-info ms-3 px-1 py-0" routerLink="/editexp/{{Experiencia.id}}" *ngIf="isLogged" >
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
@@ -22,12 +22,12 @@
         </h4>
         <div>
           <a href="https://www.instagram.com/tulipanfloresok">
-            <img src="./assets/img/tulipan.png" alt="Tulipán Flores Logo" class="img-area my-3" height="100px"
+            <img src="{{Experiencia.imgExp}}" alt="Tulipán Flores Logo" class="img-area my-3" height="100px"
               width="auto">
           </a>
         </div>
-        <h5 class="fw-bold m-0">{{Experiencia.trabajoE}}</h5>
-        <p>{{Experiencia.descripcionE}}</p>
+        <h5 class="fw-bold m-0">{{Experiencia.trabajoExp}}</h5>
+        <p>{{Experiencia.descripcionExp}}</p>
       </div>
     </div>
   </div>
