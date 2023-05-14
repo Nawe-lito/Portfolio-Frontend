@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-neweducaction',
@@ -11,15 +12,22 @@ import { EducacionService } from 'src/app/service/educacion.service';
 export class NeweducactionComponent implements OnInit {
   nombreE: string;
   descripcionE: string;
+  imgE: string;
 
-  constructor(private educacionS:EducacionService, private router: Router) {  }
+  constructor (private educacionS:EducacionService, 
+    private activatedRouter: ActivatedRoute, 
+    private router: Router,
+    public imageService: ImageService){
+      
+    }
 
   ngOnInit(): void {
     
   }
 
   onCreate(): void {
-    const educacion = new Educacion(this.nombreE, this.descripcionE);
+    const educacion = new Educacion(this.nombreE, this.descripcionE, this.imgE);
+    this.imgE = this.imageService.url;
     this.educacionS.save(educacion).subscribe(
       data =>{
         alert("Educacion agregada correctamente");
@@ -31,4 +39,9 @@ export class NeweducactionComponent implements OnInit {
     )
   }
 
+  uploadImage($event:any) {
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "educacion_" + id;
+    this.imageService.uploadImage($event, name);
+  }
 }

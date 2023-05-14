@@ -23,6 +23,10 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
 import { NeweducactionComponent } from './components/educacion/neweducaction.component';
 import { EditEducationComponent } from './components/educacion/edit-education.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { EditpersonaComponent } from './components/sobremi/editpersona.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     EditExperienciaComponent,
     NeweducactionComponent,
     EditEducationComponent,
+    EditpersonaComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       "titleFontSize": "28",
       "radius": 90,
       "space": -20,
-    })
+    }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
