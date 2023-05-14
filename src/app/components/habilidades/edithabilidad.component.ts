@@ -9,39 +9,42 @@ import { HabilidadesService } from 'src/app/service/habilidades.service';
   styleUrls: ['./edithabilidad.component.css']
 })
 export class EdithabilidadComponent implements OnInit {
- habilidades: HabilidadesModel = null;
+  habilidades: HabilidadesModel = null;
 
- constructor (private habilidadesS:HabilidadesService, 
-  private activatedRouter: ActivatedRoute, 
-  private router: Router,){
-    
-  }
-  
+  constructor(private sHabilidades: HabilidadesService,
+    private activatedRouter: ActivatedRoute,
+    private router: Router) { }
+ 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.habilidadesS.detail(id)
+    this.sHabilidades.detail(id)
     .subscribe(
       {
         next: data =>{
           this.habilidades = data;
       }, 
       error: err => {
-        alert("Error al modificar experiencia");
+        alert("Error al modificar habilidad");
         this.router.navigate(['']);
       }
       }
     )
   }
 
-onUpdate(): void {
-  const id = this.activatedRouter.snapshot.params['id'];
-  this.habilidadesS.update(id, this.habilidades).subscribe(
-    data => {
-      this.router.navigate(['']);
-    }, err  => {
-      alert("Error al modificar la educacion");
-      this.router.navigate(['']);
-    }
-  )
-}
+  onUpdate(): void{
+    const id = this.activatedRouter.snapshot.params['id'];
+    this.sHabilidades.update(id, this.habilidades)
+    .subscribe(
+      {
+        next: data =>{
+          this.router.navigate(['']);
+      }, 
+      error: err => {
+        alert("Error al modificar habilidad");
+        this.router.navigate(['']);
+      }
+      }
+    )
+  }
+
 }

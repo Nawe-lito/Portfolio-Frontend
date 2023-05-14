@@ -29,6 +29,8 @@ import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { NewHabilidadComponent } from './components/habilidades/new-habilidad.component';
 import { EdithabilidadComponent } from './components/habilidades/edithabilidad.component';
+import { NewproyectoComponent } from './components/proyectos/newproyecto.component';
+import { EditproyectoComponent } from './components/proyectos/editproyecto.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { EdithabilidadComponent } from './components/habilidades/edithabilidad.c
     EditpersonaComponent,
     NewHabilidadComponent,
     EdithabilidadComponent,
+    NewproyectoComponent,
+    EditproyectoComponent,
   ],
   imports: [
     BrowserModule,

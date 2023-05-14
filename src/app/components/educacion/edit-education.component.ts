@@ -14,8 +14,7 @@ export class EditEducationComponent implements OnInit {
 
   constructor (private educacionS:EducacionService, 
     private activatedRouter: ActivatedRoute, 
-    private router: Router,
-    public imageeducacionService: ImageeducacionService){
+    private router: Router){
       
     }
     
@@ -46,10 +45,4 @@ export class EditEducationComponent implements OnInit {
       }
     )
   }
-
-  // uploadImageE($event:any) {
-  //   const id = this.activatedRouter.snapshot.params['id'];
-  //   const name = "educacion_" + id;
-  //   this.imageeducacionService.uploadImageE($event, name);
-  // }
 }
